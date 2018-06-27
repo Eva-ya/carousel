@@ -1,0 +1,417 @@
+.click-btn {
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    background: #149EFF;
+    color: #ffffff;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+
+.preview-courseware .layui-layer {
+    width: 510px !important;
+}
+
+.preview-courseware .layui-layer .layui-layer-title {
+    background: linear-gradient(-90deg, #14D8FF 0%, #149EFF 96%);
+    font-size: 18px;
+    color: #FFFFFF;
+    line-height: 64px;
+    height: 64px;
+    text-align: center;
+    padding-right: 20px;
+}
+
+.preview-courseware .layui-layer .layui-layer-setwin .layui-layer-close1 {
+    width: 26px;
+    height: 26px;
+    background: url('../assets/close1@2x.png') no-repeat;
+    background-size: 100%;
+}
+
+.preview-courseware-main {
+    background: #E4F3FD;
+}
+
+.preview-courseware-main ul {
+    position: relative;
+    max-height: 465px;
+    padding: 40px 25px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.preview-courseware-main ul li {
+    width: 460px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding: 21px 15px;
+    margin-bottom: 25px;
+}
+
+.preview-courseware-main ul li .showTimeControl {
+    margin-left: 5px;
+    margin-top: 18px;
+    position: relative;
+    top: 3px;
+}
+
+.preview-courseware-main ul li .showTimeControl .audio-duration {
+    float: left;
+    display: inline;
+    color: #FF8200;
+    margin-top: -8px;
+    margin-left: 8px;
+}
+
+.preview-courseware-main ul li .showTimeControl .progress-bar {
+    width: 372px;
+    float: left;
+    position: relative;
+}
+
+.preview-courseware-main ul li .progress-bar .schedule {
+    width: 372px;
+    height: 4px;
+    border-radius: 10px;
+    background: #D4D4D4;
+    position: relative;
+}
+
+.preview-courseware-main ul li .progress-bar .progress {
+    position: absolute;
+    width: 0px;
+    height: 100%;
+    background: #FF8200;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.preview-courseware-main ul li .progress-bar .control {
+    height: 20px;
+    width: 10px;
+    background: #FF8200;
+    border-radius: 6px;
+    position: absolute;
+    top: -8px;
+    left: -5px;
+}
+
+.preview-courseware-main ul li .showTimeControl input[type=range] {
+    -webkit-appearance: none;
+    /* 去除系统默认样式 */
+    width: 372px;
+    height: 4px;
+    border-radius: 10px;
+    float: left;
+    /*清除系统默认样式*/
+    background: -webkit-linear-gradient(#FF8200, #FF8200) no-repeat, #D4D4D4;
+    /*设置左边颜色为#FF8200，右边颜色为#D4D4D4*/
+    background-size: 0% 100%;
+    /*设置左右宽度比例*/
+}
+
+
+/* 给滑块(thumb)添加样式 */
+
+.preview-courseware-main ul li .showTimeControl input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /*清除系统默认样式*/
+    height: 20px;
+    width: 10px;
+    background: #694724;
+    border-radius: 6px;
+}
+
+.preview-courseware-main ul li img {
+    width: 32px;
+    height: 32px;
+    display: block;
+    float: left;
+    padding-right: 10px;
+}
+
+.preview-courseware-main ul li .control-btn .hidden {
+    display: none;
+}
+
+.preview-courseware-main ul li .control-btn img {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 36px;
+    transform: translateY(-50%)
+}
+
+.preview-courseware-main ul li span.address {
+    font-size: 16px;
+    color: #474747;
+    display: inline-block;
+    line-height: 32px;
+    width: 292px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.preview-courseware-main ul li a {
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+    width: 86px;
+    height: 32px;
+    line-height: 32px;
+    display: block;
+    float: right;
+    background: linear-gradient(90deg, #14D8FF 0%, #149EFF 96%);
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+}
+
+.preview-courseware-main ul li a:hover {
+    background: linear-gradient(90deg, #12c6f2 0%, #1296f2 96%);
+}
+
+.preview-courseware-detail-main {
+    background: #000000;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+}
+
+.preview-courseware-detail-main .inner-content {
+    display: none;
+}
+
+.preview-courseware-detail-main .deleteTag {
+    width: 40px;
+    height: 40px;
+    background: url('/web/static/images/class/PC_close@2x.png') no-repeat;
+    background-size: 100%;
+    opacity: 0.4;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    cursor: pointer;
+}
+
+.preview-courseware-detail-main .deleteTag:hover {
+    opacity: 0.9;
+}
+
+.preview-courseware-detail-main .slide-left-arrow-ppt,
+.preview-courseware-detail-main .slide-right-arrow-ppt {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 32%;
+    opacity: 0.4;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.preview-courseware-detail-main .slide-left-arrow-ppt:hover,
+.preview-courseware-detail-main .slide-right-arrow-ppt:hover {
+    opacity: 0.9;
+}
+
+.preview-courseware-detail-main .slide-left-arrow-ppt {
+    background: url('../assets/PC_previous@2x.png') no-repeat;
+    background-size: cover;
+    left: 0;
+}
+
+.preview-courseware-detail-main .slide-right-arrow-ppt {
+    background: url('../assets/PC_next@2x.png') no-repeat;
+    background-size: cover;
+    right: 0;
+}
+
+
+/* ppt文件预览 */
+
+.preview-courseware-detail-main .preview-courseware-center {
+    width: 80%;
+    height: 92%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: none;
+}
+
+.preview-courseware-detail-main .preview-courseware-center img {
+    display: block;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .picBox_outbox {
+    height: 73%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .picBox {
+    height: 100%;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 0px;
+    left: 50%;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .picBox li {
+    height: 100%;
+    float: left;
+}
+
+.preview-courseware-detail-main .preview-courseware-center img {
+    height: 100%;
+    border: 4px solid;
+    border-color: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin: auto;
+    display: block;
+}
+
+.preview-courseware-detail-main .preview-courseware-center ul.slick-dots button {
+    background: #ffffff;
+    opacity: 0.4;
+    width: 16px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .pageNumber {
+    width: 76px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ffffff;
+    border-radius: 14px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    position: relative;
+    top: 15px;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .pageNumber b {
+    font-size: 18px;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .downPic {
+    width: 100%;
+    height: 16%;
+    margin-top: 2%;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .slideDots {
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .slideDots li {
+    width: 16px;
+    height: 10px;
+    border-radius: 5px;
+    opacity: 0.4;
+    background: #FFFFFF;
+    float: left;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .slideDots li:hover {
+    background: #ffffff;
+    opacity: 1;
+}
+
+.preview-courseware-detail-main .preview-courseware-center .slideDots li.chosen {
+    width: 32px;
+    background: #ffffff;
+    opacity: 1;
+}
+
+.preview-courseware-detail-main .preview-courseware-center ul.pic-slide {
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: absolute;
+}
+
+.preview-courseware-detail-main .preview-courseware-center ul.pic-slide li {
+    float: left;
+    padding: 4px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.preview-courseware-detail-main .preview-courseware-center ul.pic-slide li img {
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+}
+
+.preview-courseware-detail-main .preview-courseware-center ul.pic-slide li span {
+    width: 30px;
+    height: 16px;
+    display: block;
+    background: #474747;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    font-size: 12px;
+    color: #FFFFFF;
+    border-bottom-left-radius: 4px;
+}
+
+.preview-courseware-detail-main .preview-courseware-center ul.pic-slide li span.chosen {
+    background: #149EFF;
+}
+
+.preview-courseware-detail-main .preview-courseware-center ul.pic-slide li.chosen {
+    background: #149EFF;
+}
+
+//video文件播放
+.preview-courseware-detail-main .play-Video-center {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+.preview-courseware-detail-main .play-Video-center .play-btn {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #eeeeee;
+}
+
+.preview-courseware-detail-main .play-Video-center #videoDom {
+    width: 100%;
+}
+
+.clear {
+    clear: both;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>carousel</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+    <script src="./js/layui.js"></script>
+    <script src="./js/index.js"></script>
+</head>
+
+<body ng-app="previewCoursewareModule" ng-controller="previewCoursewareController">
+    <div class="click-btn" ng-click="previewCourseware()">点我点我</div>
+    <div>
+        <div class="preview-courseware-main" style="display:none">
+            <ul class="preview-courseware-main-ul">
+                <li ng-repeat="coursewareItem in coursewareList">
+                    <img ng-if="coursewareItem.courseCoursewareType==1" src="./assets/teen_ppt@2x.png" />
+                    <img ng-if="coursewareItem.courseCoursewareType==2" src="./assets/teen_word@2x.png" />
+                    <img ng-if="coursewareItem.courseCoursewareType==3" src="./assets/teen_img@2x.png" />
+                    <img ng-if="coursewareItem.courseCoursewareType==4" src="./assets/teen_mp3@2x.png" />
+                    <img ng-if="coursewareItem.courseCoursewareType==5" src="./assets/teen_mp4@2x.png" />
+                    <img ng-if="coursewareItem.courseCoursewareType==6" src="./assets/teen_others@2x.png" />
+                    <span class="address">{{coursewareItem.courseCoursewareName}}</span>
+                    <!-- ppt文件 -->
+                    <a ng-if='coursewareItem.courseCoursewareType==1' ng-click="previewInformationDetail(coursewareItem.keyId)">预览</a>
+                    <!-- 音频文件 -->
+                    <a ng-if="coursewareItem.courseCoursewareType==4" class="control-btn" ng-click='playAudioDetails($event,"event")'>
+                        <img class="play" src="./assets/play.png" />
+                        <img class="pause hidden" src="./assets/pause.png" />
+                    </a>
+                    <div ng-if="coursewareItem.courseCoursewareType==4" class="showTimeControl">
+                        <div class="progress-bar" ng-click="playAudioShowVal($event)">
+                            <div class="schedule">
+                                <div class="progress"></div>
+                            </div>
+                            <div class="control"></div>
+                        </div>
+                        <span class="audio-duration"></span>
+                        <audio class="audioDom" ng-src="{{sce(coursewareItem.courseCoursewareUrl)}}"></audio>
+                        <br/>
+
+                    </div>
+                    <!-- 视频文件 -->
+                    <a ng-if="coursewareItem.courseCoursewareType==5" ng-click="playVideoDetails(coursewareItem.courseCoursewareUrl)">播放</a>
+                    <!-- 非以上类型文件 -->
+                    <a ng-if="coursewareItem.courseCoursewareType!=1&&coursewareItem.courseCoursewareType!=4&&coursewareItem.courseCoursewareType!=5" ng-href="{{coursewareItem.courseCoursewareUrl}}">下载</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="preview-courseware-detail-main">
+            <div class="inner-content">
+                <a ng-click="closePreview()" class="deleteTag"></a>
+                <!-- ppt预览 -->
+                <div class="preview-courseware-center">
+                    <div ng-click="slideleftButton()" class="slide-left-arrow-ppt"></div>
+                    <div ng-click="slideRightButton(coursewareImgListNumber)" class="slide-right-arrow-ppt"></div>
+                    <!-- 上轮播 -->
+                    <div class="picBox_outbox">
+
+                        <ul class="picBox">
+                            <li ng-repeat="picItem in coursewareImgList" ng-if="topSlideIndex==$index">
+                                <img src="./assets/1_1.jpg" ng-src="{{picItem.courseCoursewarePicUrl}}" />
+                            </li>
+                        </ul>
+                        <!-- <img class="opacityImg" ng-src="{{coursewareImg.courseCoursewarePicUrl}}">
+                                <div class="clear"></div> -->
+                    </div>
+
+
+                    <span class="pageNumber">
+                                    <b>{{1-move_bottom}}</b>/{{coursewareImgListNumber}}
+                                </span>
+                    <!-- 下轮播 -->
+                    <div class="downPic">
+                        <ul class="pic-slide">
+                            <!-- <li ng-repeat="picItem in picList">
+                                            <img ng-src="{{picItem}}" />
+                                        </li> -->
+                            <li ng-repeat="picItem in coursewareImgList" ng-class="{chosen:!$index}" ng-click="gotoPic(picItem.index,$event)">
+                                <img src="./assets/1_1.jpg" ng-src="{{picItem.courseCoursewarePicUrl}}" />
+                                <span ng-class="{chosen:!$index}">{{picItem.index+1}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- dots -->
+                    <ul class="slideDots">
+                        <li ng-repeat="slideItem in slideNumber" ng-class="{chosen:!$index}" ng-click="gotoPagePic(slideItem,$event)"></li>
+                    </ul>
+                </div>
+
+                <!-- 视频播放 -->
+                <div class="play-Video-center">
+                    <video id="videoDom" autoplay controls ng-src="{{sce(VideoCourseCoursewareUrl)}}">
+                                您的浏览器不支持 video 标签，建议升级浏览器。
+                            </video>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
